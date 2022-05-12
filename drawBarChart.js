@@ -4,9 +4,9 @@ const drawBarChart = (data, options, element) => {
 
   }
 
-  const renderTitle = (title, color = 'black', size = '2em') => {
-    return `<p style="color: ${color}; font-size: ${size}">${toTitleCase(title)}</p>`;
-  };
+  const renderTitle = (title, color, size) => {
+
+  }
 
   const renderXAxis = () => {
 
