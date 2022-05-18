@@ -1,5 +1,7 @@
 const drawBarChart = (data, options, element) => {
 
+  const { title, titleSize, titleColor, barColor, xAxisLabelColor, xAxisLabels, yAxisTicks, barSpacing, barLabelColor, barLabelPosition } = options;
+
   const renderBars = data => {
 
   }
@@ -8,25 +10,26 @@ const drawBarChart = (data, options, element) => {
     return `<p style="color: ${color}; font-size: ${size}">${toTitleCase(title)}</p>`;
   };
 
-  const renderXAxis = () => {
-
+  const renderXAxis = (xAxisLabels, xAxisLabelColor, barSpacing) => {
+    return `<div class='x-axis'></div>`;
   }
 
-  const renderYAxis = () => {
-
+  const renderYAxis = ticks => {
+    return `<div class='y-axis'></div>`;
   }
 
   const renderXAxisTitle = title => {
-
+    return `<div class="x-axis-subtitle">${title}<div/>`;
   }
 
   const renderYAxisTitle = title => {
-
+    return `<div class="y-axis-subtitle">${title}<div/>`;
   }
 
   // Render calls
 
-  $(element).append(renderTitle(options['title'], 'maroon', '3em'));
+  $(element).append(renderTitle(title, titleColor, titleSize));
+  $(element).append(renderXAxis(xAxisLabels, xAxisLabelColor, barSpacing));
 
 }
 
@@ -44,7 +47,11 @@ const toTitleCase = text => {
 // Testing
 
 const data = [1, 2, 3];
-const options = { title: "Chart Title" };
+const options = {
+  title: "NBA 3-Point Attempts By Year",
+  titleColor: "maroon",
+  titleSize: "3em"
+};
 const element = document.getElementById('chart');
 
 $( document ).ready(function() {
