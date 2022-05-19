@@ -16,7 +16,12 @@ const drawBarChart = (data, options, element) => {
   };
 
   const renderXAxis = (xAxisLabels, xAxisLabelColor, barSpacing) => {
-    return `<div class='x-axis'></div>`;
+    let labels = '';
+    for(let label in xAxisLabels) {
+      labels += `<div class='x-axis-label'>${xAxisLabels[label]}</div>`;
+    }
+
+    return `<div class='x-axis'><div class='label-container'>${labels}</div></div>`;
   }
 
   const renderYAxis = ticks => {
@@ -63,6 +68,7 @@ const options = {
   titleColor: "maroon",
   titleSize: "3em",
   xAxisTitle: "Year",
+  xAxisLabels: [ 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021 ],
   yAxisTitle: "Average Number of Three-Point Attempts Per Game",
   data
 };
