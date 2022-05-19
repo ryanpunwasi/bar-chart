@@ -3,7 +3,12 @@ const drawBarChart = (data, options, element) => {
   const { title, titleSize, titleColor, barColor, xAxisTitle, xAxisLabelColor, xAxisLabels, yAxisTicks, yAxisTitle,  barSpacing, barLabelColor, barLabelPosition } = options;
 
   const renderBars = data => {
+    let bars = '';
+    for(let bar in data) {
+      bars += "<div class='bar' style='height: 30px'></div>";
+    }
 
+    return `<div class='bars-container'>${bars}</div>`
   }
 
   const renderTitle = (title, color = 'black', size = '2em') => {
@@ -33,6 +38,7 @@ const drawBarChart = (data, options, element) => {
   $(element).append(renderXAxis(xAxisLabels, xAxisLabelColor, barSpacing));
   $(element).append(renderXAxisTitle(xAxisTitle));
   $(element).append(renderYAxisTitle(yAxisTitle));
+  $(element).append(renderBars(data));
 
 
 }
@@ -57,7 +63,8 @@ const options = {
   titleColor: "maroon",
   titleSize: "3em",
   xAxisTitle: "Year",
-  yAxisTitle: "Average Number of Three-Point Attempts Per Game"
+  yAxisTitle: "Average Number of Three-Point Attempts Per Game",
+  data
 };
 
 const element = document.getElementById('chart');
