@@ -108,3 +108,14 @@ header {
   width: 3px;
   background-color: black;
 }
+
+.bars-container {
+  display: flex;
+}
+
+.bar {
+  background-color: aquamarine;
+  width: 10%;
+  margin-left: 5px;
+  margin-right: 5px;
+}
