@@ -119,3 +119,14 @@ header {
   margin-left: 5px;
   margin-right: 5px;
 }
+
+.label-container {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.x-axis-label {
+  font-weight: 900;
+}
