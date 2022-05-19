@@ -1,13 +1,13 @@
 const drawBarChart = (data, options, element) => {
 
-  const { title, titleSize, titleColor, barColor, xAxisLabelColor, xAxisLabels, yAxisTicks, barSpacing, barLabelColor, barLabelPosition } = options;
+  const { title, titleSize, titleColor, barColor, xAxisTitle, xAxisLabelColor, xAxisLabels, yAxisTicks, yAxisTitle,  barSpacing, barLabelColor, barLabelPosition } = options;
 
   const renderBars = data => {
 
   }
 
   const renderTitle = (title, color = 'black', size = '2em') => {
-    return `<p style="color: ${color}; font-size: ${size}">${toTitleCase(title)}</p>`;
+    return `<p class="title" style="color: ${color}; font-size: ${size}">${toTitleCase(title)}</p>`;
   };
 
   const renderXAxis = (xAxisLabels, xAxisLabelColor, barSpacing) => {
@@ -29,7 +29,11 @@ const drawBarChart = (data, options, element) => {
   // Render calls
 
   $(element).append(renderTitle(title, titleColor, titleSize));
+  $(element).append(renderYAxis(yAxisTicks));
   $(element).append(renderXAxis(xAxisLabels, xAxisLabelColor, barSpacing));
+  $(element).append(renderXAxisTitle(xAxisTitle));
+  $(element).append(renderYAxisTitle(yAxisTitle));
+
 
 }
 
@@ -47,11 +51,15 @@ const toTitleCase = text => {
 // Testing
 
 const data = [1, 2, 3];
+
 const options = {
-  title: "NBA 3-Point Attempts By Year",
+  title: "NBA Three-Point Attempts By Year",
   titleColor: "maroon",
-  titleSize: "3em"
+  titleSize: "3em",
+  xAxisTitle: "Year",
+  yAxisTitle: "Average Number of Three-Point Attempts Per Game"
 };
+
 const element = document.getElementById('chart');
 
 $( document ).ready(function() {
